@@ -41,7 +41,7 @@ export const Home = () => {
                 <Stack h={"100vh"} justifyContent="center" alignItems="center" direction={["column","row"]}>
 
                     <Card amount={1000} img={"./Img.png"} checkoutHandler={checkoutHandler}/>
-                    <Card amount={1000} img={"./Img.png"} checkoutHandler={checkoutHandler}/>
+                    
                 </Stack>
             </Box>
         </>
