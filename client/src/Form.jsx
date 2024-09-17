@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./form.css";
+import axios from "axios";
 
 const Form = () =>{
     const [values, setValues] = useState(
         {   school:"",
+            choice:"",
             address:"",
             name:"",
             email:"",
@@ -19,9 +21,42 @@ const Form = () =>{
         const {name, value} = e.target;
         setValues({...values,[name]:value});
     };
-    const submit=()=>{
+    const submit= async ()=>{
+        if( values.school === "" ||
+            values.choice === "" ||
+            values.address === "" ||
+            values.name === "" ||
+            values.email === "" ||
+            values.namecordi === "" ||
+            values.numbercordi === "" ||
+            values.nameescort === "" ||
+            values.numberescort === "" ||
+            values.state === "" ||
+            values.city === ""
+        )
+        {
+            alert("All Fields Are Required");
+        }else{
+            await axios.post("http://localhost:4000/api/v1/post",values).then((res)=>{
+               alert(res.data.message);
+            });
+            setValues(
+                {   school:"",
+                    choice:"",
+                    address:"",
+                    name:"",
+                    email:"",
+                    namecordi:"",
+                    numbercordi:"",
+                    nameescort:"",
+                    numberescort:"",
+                    state:"",
+                    city:""
+                }
+            )
+        }
         
-    }
+    } 
     return(
         <>
             <div className="main d-flex justify-content-center align-items-center">
@@ -30,12 +65,22 @@ const Form = () =>{
                     <hr/>
                     <div className="cont-form d-flex flex-column justify-content-between">
                         <div>
-                            <h5>Name of the School/College</h5>
+                            <h5>Name of the Institution</h5>
                             <input 
                             type="text" 
                             placeholder="Enter The Name" 
                             name="school" 
                             value={values.school}
+                            onChange={change}
+                            />
+                        </div>
+                        <div>
+                            <h5>School or College?</h5>
+                            <input 
+                            type="text" 
+                            placeholder="Enter The Name" 
+                            name="choice" 
+                            value={values.choice}
                             onChange={change}
                             />
                         </div>
@@ -49,7 +94,7 @@ const Form = () =>{
                             />
                         </div>
                         <div>
-                            <h5>Name of the Principal</h5>
+                            <h5>Name of the Instituion Head</h5>
                             <input 
                             type="text" 
                             placeholder="Enter The Name of the Principal" 
