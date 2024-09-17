@@ -6,7 +6,7 @@ export const Card = ({amount, img,checkoutHandler}) => {
     return(
         <>
             <VStack>
-                <Form/>
+                <Image src="./Img.png"/>
                 <Text>Rs.{amount}</Text>
                 <Button onClick={()=>checkoutHandler(amount)}>Pay Now</Button>
             </VStack>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./form.css";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const Form = () =>{
     const [values, setValues] = useState(
@@ -17,6 +18,8 @@ const Form = () =>{
             city:""
         });
     
+    const navigate = useNavigate();
+
     const change = (e) => {
         const {name, value} = e.target;
         setValues({...values,[name]:value});
@@ -53,7 +56,8 @@ const Form = () =>{
                     state:"",
                     city:""
                 }
-            )
+            );
+            navigate("/payment");
         }
         
     } 
