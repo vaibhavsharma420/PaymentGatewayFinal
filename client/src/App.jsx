@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
 import { Home } from "./Home";
 import { PaymentSuccess } from "./PaymentSuccess";
+import Form from "./Form";
 
 const App = () => {
   return(
@@ -9,6 +10,7 @@ const App = () => {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/paymentsuccess" element={<PaymentSuccess/>} />
+            <Route path="/applicationform" element={<Form/>} />
         </Routes>
     </Router>
     </>

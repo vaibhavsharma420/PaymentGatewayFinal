@@ -1,4 +1,4 @@
-import { instance } from "../server.js";
+// import { instance } from "../server.js";
 import crypto from "crypto";
 import {Payment} from "../models/paymentModel.js";
 
@@ -7,7 +7,7 @@ export const checkout = async (req, res) =>{
         amount: Number(req.body.amount*100),
         currency: "INR",
     };
-    const order = await instance.orders.create(options);
+    // const order = await instance.orders.create(options);
 
     res.status(200).json({
         success:true,
