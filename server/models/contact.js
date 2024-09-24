@@ -50,7 +50,7 @@ const contactSchema = new mongoose.Schema({
     fee_paid_status: {
         type: String,
         required: false,
-        default: "Pending"
+        default: "pending"
     }
 });
 
